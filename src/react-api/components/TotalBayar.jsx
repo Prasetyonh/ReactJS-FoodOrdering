@@ -26,9 +26,9 @@ export default class TotalBayar extends Component {
     return (
       <>
         {/*web */}
-        <div className="fixed-bottom d-none d-md-block">
+        <div className="relative-bottom d-none d-md-block">
           <Row>
-            <Col md={{ span: 3, offset: 9 }} className="px-4">
+            <Col md={{ span: 12 }} className="px-4 mt-2">
               <h4>
                 Total Harga :
                 <strong className="float-end me-2">
@@ -38,11 +38,11 @@ export default class TotalBayar extends Component {
               </h4>
               <div className="d-grid gap-2">
                 <Button
-                  className="btn btn-primary btn-lg mb-2 mt-3 me-2"
+                  className="btn btn-primary btn-lg mb-2 mt-2 me-2"
                   onClick={() => this.submitTotalBayar(totalBayar)}
                 >
                   <FontAwesomeIcon icon={faShoppingCart} />{" "}
-                  <strong>Bayar</strong>
+                  <strong>Pesan</strong>
                 </Button>
               </div>
             </Col>
@@ -52,21 +52,20 @@ export default class TotalBayar extends Component {
         {/*mobile */}
         <div className="d-sm-block d-md-none">
           <Row>
-            <Col md={{ span: 3, offset: 9 }} className="px-4">
+            <Col md={{ span: 3, offset: 9 }} className="px-4 mt-2">
               <h4>
                 Total Harga :
                 <strong className="float-end me-2">
-                  {" "}
                   Rp. {numberWithCommas(totalBayar)}
                 </strong>
               </h4>
               <div className="d-grid gap-2">
                 <Button
-                  className="btn btn-primary btn-lg mb-2 mt-3 me-2"
+                  className="btn btn-primary btn-lg mb-2 mt-2 me-2"
                   onClick={() => this.submitTotalBayar(totalBayar)}
                 >
                   <FontAwesomeIcon icon={faShoppingCart} />{" "}
-                  <strong>Bayar</strong>
+                  <strong>Pesan</strong>
                 </Button>
               </div>
             </Col>

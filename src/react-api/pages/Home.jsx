@@ -9,8 +9,7 @@ import Menus from "../components/Menus";
 import axios from "axios";
 import { API_URL } from "../utils/constants";
 import Swal from "sweetalert2";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import Banner from "../components/Banner";
 
 class Home extends Component {
   constructor(props) {
@@ -115,6 +114,7 @@ class Home extends Component {
           axios
             .put(API_URL + "keranjangs/" + res.data[0].id, keranjang)
             .then((res) => {
+              this.getListKeranjang();
               Swal.fire(
                 "Sukses!",
                 `Berhasil Menambahkan <b>${keranjang.product.nama}</b> ke dalam Keranjang `,
@@ -136,11 +136,13 @@ class Home extends Component {
     return (
       <div className="mt-3">
         <Container fluid>
+          <Banner />
           <Row>
             <ListKategori
               changeCategory={this.changeCategory}
               pilihKategori={pilihKategori}
             />
+            <br id="menu" />
             <Col className="mt-3">
               <h4>
                 <strong>Daftar Menu</strong>
@@ -163,9 +165,6 @@ class Home extends Component {
               getListKeranjang={this.getListKeranjang}
             />
           </Row>
-          <a href="#keranjang" className="float">
-            <FontAwesomeIcon className="myFloat" icon={faShoppingCart} />
-          </a>
         </Container>
       </div>
     );

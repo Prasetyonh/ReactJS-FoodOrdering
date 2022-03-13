@@ -8,7 +8,7 @@ class index extends Component {
     return (
       <BrowserRouter>
         <NavbarComponent />
-        <main>
+        <main className="pt-5">
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/sukses" component={Sukses} exact />

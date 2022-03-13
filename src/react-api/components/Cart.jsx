@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { Badge, Card, Col, ListGroup, Row } from "react-bootstrap";
+import { Badge, Button, Card, Col, ListGroup, Row } from "react-bootstrap";
 import { numberWithCommas } from "../utils/utils";
 import TotalBayar from "./TotalBayar";
 import Modal from "./ModalKeranjang";
 import axios from "axios";
 import { API_URL } from "../utils/constants";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 class Cart extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class Cart extends Component {
       showModal: false,
       keranjangDetail: false,
       jumlah: 0,
+      jumlahtotal: 0,
       keterangan: "",
       totalHarga: 0,
     };
@@ -25,6 +28,7 @@ class Cart extends Component {
       showModal: true,
       keranjangDetail: menuKeranjang,
       jumlah: menuKeranjang.jumlah,
+      jumlahtotal: menuKeranjang.jumlah + 5,
       keterangan: menuKeranjang.keterangan,
       totalHarga: menuKeranjang.total_harga,
     });
@@ -114,11 +118,7 @@ class Cart extends Component {
           <Card className="overflow-auto cart">
             <ListGroup variant="flush">
               {keranjangs.map((menuKeranjang) => (
-                <ListGroup.Item
-                  key={menuKeranjang.id}
-                  onClick={() => this.handleShow(menuKeranjang)}
-                  style={{ cursor: "pointer" }}
-                >
+                <ListGroup.Item key={menuKeranjang.id}>
                   <Row>
                     <Col xs="2">
                       <h4>
@@ -132,7 +132,15 @@ class Cart extends Component {
                       <p>Rp. {numberWithCommas(menuKeranjang.product.harga)}</p>
                     </Col>
                     <Col>
-                      <strong className="float-end">
+                      <Button
+                        className="float-end ms-5 btn-sm"
+                        onClick={() => this.handleShow(menuKeranjang)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <FontAwesomeIcon icon={faPencil} /> Edit
+                      </Button>
+                      <br />
+                      <strong className="float-end mt-3">
                         Rp. {numberWithCommas(menuKeranjang.total_harga)}
                       </strong>
                     </Col>
