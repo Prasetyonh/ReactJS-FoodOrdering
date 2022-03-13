@@ -1,2 +1,1 @@
-export const API_URL =
-  "https://my-json-server.typicode.com/Prasetyonh/foodOrdering-API/";
+export const API_URL = "https://foor-oredring-jsonserver.herokuapp.com/";
