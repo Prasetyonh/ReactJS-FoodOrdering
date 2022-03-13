@@ -4,8 +4,9 @@ import { numberWithCommas } from "../utils/utils";
 const Menus = ({ menu, addKeranjang }) => {
   return (
     <Col md={4} xs={6}>
-      <Card className="mb-3 shadow">
+      <Card className="mb-2 shadow">
         <Card.Img
+          className="card-img-top"
           variant="top"
           src={"images/" + menu.category.nama.toLowerCase() + "/" + menu.gambar}
         />

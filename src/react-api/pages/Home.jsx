@@ -9,6 +9,8 @@ import Menus from "../components/Menus";
 import axios from "axios";
 import { API_URL } from "../utils/constants";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 class Home extends Component {
   constructor(props) {
@@ -33,6 +35,24 @@ class Home extends Component {
         console.log(err);
       });
 
+    this.getListKeranjang();
+  }
+  // componentDidUpdate(prevState) {
+  //   if (this.state.keranjangs !== prevState.keranjangs) {
+  //     axios
+  //       .get(API_URL + "keranjangs")
+  //       .then((res) => {
+  //         // console.log("Response :", res);
+  //         const keranjangs = res.data;
+  //         this.setState({ keranjangs });
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }
+
+  getListKeranjang = () => {
     axios
       .get(API_URL + "keranjangs")
       .then((res) => {
@@ -43,21 +63,7 @@ class Home extends Component {
       .catch((err) => {
         console.log(err);
       });
-  }
-  componentDidUpdate(prevState) {
-    if (this.state.keranjangs !== prevState.keranjangs) {
-      axios
-        .get(API_URL + "keranjangs")
-        .then((res) => {
-          // console.log("Response :", res);
-          const keranjangs = res.data;
-          this.setState({ keranjangs });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }
+  };
 
   changeCategory = (value) => {
     this.setState({
@@ -90,6 +96,7 @@ class Home extends Component {
           axios
             .post(API_URL + "keranjangs", keranjang)
             .then((res) => {
+              this.getListKeranjang();
               Swal.fire(
                 "Sukses!",
                 `Berhasil Menambahkan <b>${keranjang.product.nama}</b> ke dalam Keranjang `,
@@ -134,12 +141,12 @@ class Home extends Component {
               changeCategory={this.changeCategory}
               pilihKategori={pilihKategori}
             />
-            <Col>
+            <Col className="mt-3">
               <h4>
                 <strong>Daftar Menu</strong>
               </h4>
               <hr />
-              <Row>
+              <Row className="overflow-auto menu">
                 {menus &&
                   menus.map((menu) => (
                     <Menus
@@ -150,8 +157,15 @@ class Home extends Component {
                   ))}
               </Row>
             </Col>
-            <Cart keranjangs={keranjangs} {...this.props} />
+            <Cart
+              keranjangs={keranjangs}
+              {...this.props}
+              getListKeranjang={this.getListKeranjang}
+            />
           </Row>
+          <a href="#keranjang" className="float">
+            <FontAwesomeIcon className="myFloat" icon={faShoppingCart} />
+          </a>
         </Container>
       </div>
     );

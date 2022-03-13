@@ -1,15 +1,16 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBurger } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Navbar, Container } from "react-bootstrap";
 
 const navbar = () => {
   return (
     <div>
-      <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar bg="primary" variant="dark" expand="lg" className="sticky-top">
         <Container>
           <Navbar.Brand href="/">
-            <strong>Food Ordering</strong>{" "}
+            <FontAwesomeIcon icon={faBurger} /> <strong>Food Ordering</strong>{" "}
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </Container>
       </Navbar>
     </div>

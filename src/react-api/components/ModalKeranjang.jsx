@@ -14,12 +14,14 @@ const ModalKeranjang = ({
   kurang,
   changeHandler,
   handleSubmit,
+  totalHarga,
+  deleteCart,
 }) => {
   if (keranjangDetail) {
     return (
       <div>
         <Modal show={showModal} onHide={handleClose}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>
               {keranjangDetail.product.nama}{" "}
               <strong>
@@ -32,22 +34,21 @@ const ModalKeranjang = ({
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Total Harga :</Form.Label>
                 <p>
-                  <strong>
-                    Rp. {numberWithCommas(keranjangDetail.total_harga)}
-                  </strong>
+                  <strong>Rp. {numberWithCommas(totalHarga)}</strong>
                 </p>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Jumlah :</Form.Label>
                 <br />
+
                 <Button
                   variant="primary"
                   size="sm"
                   className="me-2"
-                  onClick={() => tambah()}
+                  onClick={() => kurang()}
                 >
-                  <FontAwesomeIcon icon={faPlus} />
+                  <FontAwesomeIcon icon={faMinus} />
                 </Button>
 
                 <strong>{jumlah}</strong>
@@ -56,9 +57,9 @@ const ModalKeranjang = ({
                   variant="primary"
                   size="sm"
                   className="ms-2"
-                  onClick={() => kurang()}
+                  onClick={() => tambah()}
                 >
-                  <FontAwesomeIcon icon={faMinus} />
+                  <FontAwesomeIcon icon={faPlus} />
                 </Button>
               </Form.Group>
 
@@ -82,11 +83,14 @@ const ModalKeranjang = ({
             </Form>
           </Modal.Body>
           <Modal.Footer>
+            <Button
+              variant="danger"
+              onClick={() => deleteCart(keranjangDetail.id)}
+            >
+              <FontAwesomeIcon icon={faTrash} /> Hapus Pesanan
+            </Button>
             <Button variant="secondary" onClick={handleClose}>
               Batal
-            </Button>
-            <Button variant="danger">
-              <FontAwesomeIcon icon={faTrash} /> Hapus Pesanan
             </Button>
           </Modal.Footer>
         </Modal>

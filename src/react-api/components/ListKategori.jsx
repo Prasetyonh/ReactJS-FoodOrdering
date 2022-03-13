@@ -47,7 +47,7 @@ class ListKategori extends Component {
     const { categories } = this.state;
     const { changeCategory, pilihKategori } = this.props;
     return (
-      <Col md={2} mt="2">
+      <Col md={2} mt="2" className="mt-3">
         <h4>
           <strong>Daftar Kategori</strong>
         </h4>

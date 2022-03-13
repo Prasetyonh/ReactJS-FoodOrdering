@@ -10,3 +10,72 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.float {
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  bottom: 20px;
+  right: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  text-decoration: none;
+  display: none;
+}
+.myFloat {
+  margin-top: 15px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 13vw;
+  object-fit: cover;
+}
+
+.overflow-auto::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-height: 1000px) {
+  .cart {
+    height: 650px;
+  }
+  .menu {
+    height: 730px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card-img-top {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+  }
+  .float {
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    text-decoration: none;
+    display: block;
+  }
+  .myFloat {
+    margin-top: 15px;
+  }
+  .menu {
+    height: 600px;
+  }
+  .cart {
+    height: fit-content;
+    max-height: 450px;
+  }
+}
