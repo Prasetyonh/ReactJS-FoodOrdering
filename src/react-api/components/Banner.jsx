@@ -62,9 +62,9 @@ export default class Banner extends Component {
                     voluptatem officia provident amet architecto. Dolores
                     distinctio sit dicta provident ipsam.
                   </p>
-                  <a className="btn btn-md btn-primary" href="#menu">
-                    Order Now
-                    <b-icon-caret-right-fill></b-icon-caret-right-fill>
+                  <a className="btn btn-primary btn-md" href="#menu">
+                    Order Now {"  "}
+                    <FontAwesomeIcon icon={faArrowCircleDown} />
                   </a>
                 </div>
               </div>

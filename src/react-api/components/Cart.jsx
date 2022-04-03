@@ -133,7 +133,7 @@ class Cart extends Component {
                     </Col>
                     <Col>
                       <Button
-                        className="float-end ms-5 btn-sm"
+                        className="float-end ms-5 btn-sm btn-warning"
                         onClick={() => this.handleShow(menuKeranjang)}
                         style={{ cursor: "pointer" }}
                       >
