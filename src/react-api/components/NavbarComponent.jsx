@@ -21,7 +21,7 @@ const navbar = () => {
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
           ></Nav>
-          <Nav.Link className="text-white" href="#keranjang">
+          <Nav.Link className="text-white" href="/#keranjang">
             <span className="d-none  d-md-inline">Keranjang</span>&nbsp;&nbsp;
             <strong>
               <FontAwesomeIcon icon={faShoppingCart} />

@@ -61,6 +61,11 @@ code {
     height: 30vw;
     object-fit: cover;
   }
+  .imgSukses {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .menu {
     height: 600px;
